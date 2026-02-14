@@ -1,0 +1,30 @@
+##Informacje o użytkownikach i grupach
+#	/etc/passwd -- informację o użytkownikach:
+-ID usera
+-Podstawowa grupa użytkownika (GID)
+-Ścieżka katalogu domowego użytkownika
+-Z jakiego shella użytkownik korzysta 
+#	/etc/shadow  -- plik z zaszyforwanymi hasłami użytkowników. Podgląd do pliku wymaga roota:
+-Plik zawiera również informacje o ważności hasła.
+#	/etc/group   -- Plik z listą wszystkich grup w systemie (nie tylko tych które zostały stworzone przez użytkownika). Również plik pokazuje dodatkowe grupy użytkowników.
+#	/etc/gshadow -- Plik z hasłami grup jak ich adminstratorów. Również pokazuje przynależność osoby do grupy. Podgląd do pliku również wymaga roota. 
+## Tworzenie grupy 	 
+Stworzyłem grupę za pomocą groupadd (oczywiście z sudo) a jej istnienie sprawdziłem za pomocą cat + grep.
+Warto pamiętać o narzędziu getent, które nie odczytuje bezpośrednio jednego pliku, lecz korzysta z systemowych źródeł informacji o użytkownikach i grupach.
+## Tworzenie nowego użytkownika 
+Dodać nowego użytkownika można za pomocą useradd labuser1
+Zmiana jego hasła można wykonać za pomocą passwd labuser1 
+Sprawdzenie czy użytkownik został stworzony  --- getent passwd labuser1
+labuser1:x:1006:1008::/home/labuser1:/bin/sh --- nazwa użytkownika|UID|GID|Ścieżka katalogu domowego|Domyślna Powłoka
+---------------------------------------------------
+useradd sam z siebie robi absolutne minimum. Na egzaminie pamiętaj: jeśli chcesz mieć katalog domowy, musisz mu to kazać flagą -m. Jest idealny do skryptów (automatyzacji).
+useradd domyślnie tworzy minimalnego użytkownika; utworzenie katalogu domowego zależy od konfiguracji systemu, dlatego w praktyce używa się flagi -m
+
+adduser to "asystent w skrypcie". Jest interaktywny – sam założy katalog, zapyta o hasło i imię. To nakładka (friendly tool), której używasz "z palca", żeby o niczym nie zapomnieć.
+
+Katalog /etc/skel/ (skeleton) to "szablon". Wszystko, co tam wrzucisz (pliki .bashrc, instrukcje, powitania), zostanie automatycznie skopiowane do folderu domowego każdego nowego użytkownika w momencie jego tworzenia.
+
+## Dodanie użytkownika do grupy ##
+
+Różnica między użyciem -aG a samego -G  w komendzie usermod  jest taka że gdy pozbawimy komendy flagi -a flaga -G usunie wszystkie inne Supplementary group i doda tą którą wymieniliśmy w komendzie 
+Grupa podstawowa (primary group), ustawiana m.in. flagą -g, jest domyślną grupą przypisywaną do nowo tworzonych plików i katalogów przez użytkownika.
