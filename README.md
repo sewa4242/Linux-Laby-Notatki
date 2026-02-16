@@ -1,3 +1,7 @@
-Repozytorium dokumentujące moją naukę Linuksa i podstaw cyberbezpieczeństwa (Blue Team).
-Zawiera notatki, analizy logów oraz skrypty Bash.
-Repo/notatki rozwijam wraz z postępem nowych labów,wiedzy 
+## Linux Laby i Notatki
+
+Repozytorium dokumentujące moją naukę systemu Linux oraz podstaw cyberbezpieczeństwa (Blue Team).
+Uczę się głównie poprzez praktykę – własne laboratoria na Ubuntu, pracę w terminalu oraz proste skrypty Bash.
+
+Zawiera notatki, analizy logów oraz ćwiczenia związane z administracją systemem Linux.
+Repozytorium jest rozwijane na bieżąco wraz z postępem nauki.
