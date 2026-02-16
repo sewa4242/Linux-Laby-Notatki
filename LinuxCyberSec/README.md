@@ -26,7 +26,10 @@ Notatki z pracy z Apache:
 - zmiana DocumentRoot,
 - gdzie są pliki konfiguracyjne,
 - prosty troubleshooting (cache przeglądarki, curl).
-
+### Wynik
+- Zweryfikowano działanie usługi Apache
+- Zlokalizowano pliki konfiguracyjne i katalog DocumentRoot
+- Przeprowadzono podstawowy troubleshooting dostępu do strony
 Plik: `Apache.md`
 
 ---
@@ -37,6 +40,9 @@ Plik: `Apache.md`
 - `grep`, `zgrep`,
 - pipe i przekierowań,
 - zapisu wyników do plików z użyciem `tee`.
-
+### Wynik
+- Przećwiczono skuteczne wyszukiwanie plików i treści w systemie
+- Połączono find z grep oraz -exec
+- Zastosowano potoki i przekierowania do zapisu wyników
 Plik: `poszukiwanie_pliku.md`
 ###
