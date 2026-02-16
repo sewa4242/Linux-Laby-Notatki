@@ -1,9 +1,10 @@
-# LinuxCyberSec
+## LinuxCyberSec
 
-Ten folder to moje notatki i laby z nauki Linuxa.
-Wszystko było robione ręcznie na VM (Ubuntu) podczas ćwiczeń.
+Ten katalog zawiera moje notatki i laboratoria z nauki systemu Linux oraz podstaw cyberbezpieczeństwa (Blue Team).
+Wszystkie ćwiczenia były wykonywane ręcznie na maszynie wirtualnej z Ubuntu, z naciskiem na praktyczne zadania administracyjne i analizę logów.
 
 ## Co tu jest
+Zbiór ćwiczeń i notatek z zakresu administracji Linuxem, pracy z usługami oraz analizy logów.
 
 ### Analiza prób logowania
 Plik z analizą logów SSH i użycia sudo.
