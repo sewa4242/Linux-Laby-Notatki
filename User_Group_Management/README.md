@@ -1,3 +1,8 @@
+## User & Group Management (Linux)
+
+Cel: przećwiczenie tworzenia użytkowników/grup, uprawnień katalogów oraz sticky bit.
+Środowisko: Ubuntu (VM).
+Weryfikacja: id / getent / ls -l oraz test dostępu użytkowników.
 ### Tworzenie testowej grupy ###
 	Grupę utworzyłem za pomocą komendy sudo groupadd labadmins
 	Weryfikacji dodania grupy dokonałem za pomocą cat /etc/group | grep labadmins
@@ -25,4 +30,6 @@
 	Do pozbycia się uzytkowników służacych mi w tym labie zastoswałem sudo deluser --remove-all-files --remove-home labuser1
 	Analogicznie do usunięcia grup użyłem sudo delgroup labadmins 
 	Wynik czyszczenia użytkowników sprawdziłem przy pomocy getent group | grep labadmins   oraz getent passwd | grep labuser1
-	Czyszczenie po labie zakończyło się sukcesem 
+## Wynik testu
+- Użytkownik spoza grupy: brak dostępu do /labuser (permission denied) ✅
+- Użytkownik w grupie labadmins: dostęp do /labuser ✅
