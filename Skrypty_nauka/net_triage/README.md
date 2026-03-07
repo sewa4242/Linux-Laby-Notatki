@@ -8,7 +8,7 @@ Skrypt ten:
 4. Sprawdza czy port HTTP jest w trybie listen 
 5. Czy usługa apache prawidłowo działa 
 ------------------------------------------------------------------------------------------
-##Scenariusz:
+## Scenariusz:
 Host nie ma dostępu do internetu / nie potrafi nawiząć komunikacji z inną siecią.
 ## Etapy działania:
 ### ETAP 1 - ROUTING
