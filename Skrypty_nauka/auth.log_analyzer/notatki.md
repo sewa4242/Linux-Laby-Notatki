@@ -20,10 +20,17 @@ KONIEC SUM=6
 sort -rn  sortuje dane  -n sortuje wg wartości liczbowych bez tego "10" znalazła by się przed "2" -r odwraca wynik sortowania 
 ## Analiza TOP IP nie uwzględni wpisów z message repeated w wersji na prawdziwym serwerze należało by to ulepszyć 
 6. USER=$(sudo grep "sshd" /var/log/auth.log | grep -i "failed password" | grep -v "message repeated" | awk '{print $7}' | sort | uniq -c | sort -rn | head)
+   
    read USER_COUNT USERNAME <<< "$USER"
+   
    read -- służy do wczytywania danych do zmiennych. Np. read name -- program czeka aż użytkownik coś wpisze w terminalu. Na przykład Seweryn wtedy bash robi name=Seweryn
-   read potrafi automatycznie rozbić tekst po spacji. 
+   
+   read potrafi automatycznie rozbić tekst po spacji.
+    
    Ty miałeś zmienną USER="2 Seweryn"
+   
    Bash robi USER_COUNT=2 USERNAME=seweryn
-   <<< here string -- potraktuj ten tekst jak wejście do polecenia 
+   
+   <<< here string -- potraktuj ten tekst jak wejście do polecenia
+   
    czyli <<< "$RESULT_USER" podaj zawartość zmiennej jako wejście do read
