@@ -1,3 +1,12 @@
+### Podstawowe pojęcia komendy ss ###
+PORT        To punkt komunikacji który pozwala systemowi przekazać ruch siecowy do konkretnej aplikacji
+LISTEN	serwer czeka
+SYN_SENT	próbujemy się połączyć
+SYN_RECV	ktoś próbuje się połączyć
+ESTABLISHED	połączenie zestawione
+FIN_WAIT	zamykanie
+TIME_WAIT	czekanie po zamknięciu
+
 ### Sprawdzanie co nasłuchuje na serwerze ###
 
 Flaga -p w komendzie ss wymaga uprawnień root, aby wyświetlić proces powiązany z gniazdem.
