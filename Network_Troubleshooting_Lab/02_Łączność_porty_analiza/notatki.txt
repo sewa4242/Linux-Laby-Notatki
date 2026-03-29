@@ -30,13 +30,13 @@ Model: daemon + fork per connection
 
 ### Recive-Q / Send-Q ###
 	#STAN ESTABLISHED
-	Recive --liczba bajtów odebranych przez kernel, ale jeszcze NIE odebranych przez aplikację.
+	Recv-Q to liczba bajtów, które przyszły do mojego hosta i czekają aż program je odczyta.
 Czyli: 
 -dane przyszły z sieci
 -leżą w buforze
 -proces jeszcze ich nie przeczytał
 #TO ROZMIAR BUFORA
-	Send -- liczba bajtów wysłanych przez aplikację, ale jeszcze NIE potwierdzonych przez drugą stronę.
+	Send-Q to liczba bajtów, które mój host chce wysłać do drugiej strony, ale jeszcze nie zostały wysłane lub potwierdzone.
 Czyli:
 - dane wysłane
 - Czekają na potwierdzenie TCP 
