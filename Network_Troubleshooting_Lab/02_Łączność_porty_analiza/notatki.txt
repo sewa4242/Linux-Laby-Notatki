@@ -27,6 +27,8 @@ sshd (LISTEN) → proces główny
 sshd (ESTABLISHED) → proces potomny obsługujący sesję
 
 Model: daemon + fork per connection
+Serwer działa jako daemon, który nasłuchuje na porcie.
+Po nawiązaniu połączenia tworzy osobny proces do obsługi klienta.
 
 ### Recive-Q / Send-Q ###
 	#STAN ESTABLISHED
