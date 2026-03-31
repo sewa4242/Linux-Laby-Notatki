@@ -25,8 +25,6 @@ ESTABLISHED = aktywna sesja TCP między klientem a serwerem.
 3. Sprawdzenie czy port od apache2 przestał być w listen `sudo ss -t -l -p | grep http`. Tak ponieważ w wyniku komendy zniknął wpis na temat portu http oraz procesu apache2
 Wniosek: Zniknięcie wpisu LISTEN po zatrzymaniu usługi potwierdza zależność między procesem a otwartym portem. 
 
-### ETAP 4 --- Recv-Q / Send-Q ###
-    Recv-Q   Send-Q 
 ### Celem laboratorium jest nauka diagnozowania połączeń sieciowych w systemie Linux przy użyciu narzędzi takich jak ss, netstat, lsof, tcpdump, oraz interpretacja stanów TCP. ###
 
 ### ETAP 1 --- Co nasłuchuje na serwerze ###
@@ -67,17 +65,6 @@ LISTEN      -- w tym stanie oznaczają backlog połączeń
 Recv-Q wysokie --- lokalna aplikacja nie odbiera danych
 Send-Q wysokie --- klient/sieć nie potwierdza danych
 LISTEN backlog pełny → problem z przyjmowaniem połączeń (accept) możliwy atak DoS
-1. Recv-Q -- liczba bajtów odebranych przez kernel ale jeszcze NIE odebranych przez aplikację.
-2. Send-Q -- liczba bajtów wysłanych przez aplikacje ale jeszcze nie potwierdzonych przez drugą stronę.
-
-ESTABLISHED -- w tym stanie oznaczają bufor danych
-LISTEN      -- w tym stanie oznaczają backlog połączeń 
-	Analiza Recv-Q i Send-Q pozwala określić gdzie leży problem, po stronie aplikacji lokalnej czy komunikacji zdalnej na przykład:
-
-Recv-Q wysokie --- lokalna aplikacja nie odbiera danych
-Send-Q wysokie --- klient/sieć nie potwierdza danych
-LISTEN backlog pełny → problem z przyjmowaniem połączeń (accept) możliwy atak DoS 
-
 
 ### WNIOSEK ###
 	Narzędzie ss nie pokazuje nam tylko otwartych portów ale pozwala nam na anlizę połączenia jak i również znaleźienia wąskich gardeł komunikacji 
