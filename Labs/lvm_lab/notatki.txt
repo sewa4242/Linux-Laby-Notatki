@@ -1,0 +1,70 @@
+### Wykrycie nowego dysku ###
+#	Aby wykryć nowy dysk używamy komendy lsblk 
+
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda      8:0    0   10G  0 disk
+├─sda1   8:1    0    1M  0 part
+└─sda2   8:2    0   10G  0 part /
+sdb      8:16   0    5G  0 disk
+sr0     11:0    1 58.5M  0 rom
+
+	sda/sdb to oznaczenia naszych dysków, sda1/sda2 to partycję dysku.
+Widzimy że partycja sda2 jest zamontowana na stałe, ( to nasze główne drzewko z którego wychodzi cały filesystem) 
+
+### Tworzenie nowej partycji ###
+
+Partycje możemy utworzyć za pomoca paru komend jedna z nich to sudo fdisk /dev/sdb 
+Zaznaczamy poprawną opcję aby utworzyć partycję, po czym wpisujemy wielkość partycji w przypadku fdisk np +5GB
+
+### Tworzenie fizycznego woluminu ### 
+Fizyczny wolumin -- Jest to warstwa zarządzania przestrzenią ( NIE PRZECHOWYWANIEM DANYCH ) również jest to fizyczny nośnik zarządzany przez LVM. Z niego tworzymy grupę wolumenów 
+Tworzymy go za pomocą sudo pvcreate /dev/sdb1 
+### Tworzenie grupy woluminów ###
+Tworzenie grupy woluminów -- sudo vgcreate vg_storage /dev/sdb1 
+PE (Physical Extents) to jednostki, na które LVM dzieli przestrzeń.
+### Tworzenie logicznego woluminu ###
+	sudo lvcreate --name lv_storage --size +3GiB vg_storage
+
+  System plików ---  to sposób, w jaki system operacyjny organizuje i zapisuje dane na dysku.
+Najczęstsze systemy plików w Linux:
+
+ext4 → uniwersalny, bezpieczny, klasyczny
+
+xfs → często w środowiskach enterprise (RHEL, duże storage)
+
+btrfs → bardziej zaawansowany (snapshoty, subvolumes)
+### Przydzielanie systemów plików ###
+ext4 rezerwuje ~5% dla roota
+→ normalne, że df pokazuje mniej
+### Edycja fstab ###
+
+Poprawny wpis do fstab powinnien wyglądać tak ` UUID=69bed7dc-1a39-45f8-915a-3e1c08a46bf3 /mnt/dane ext4 defaults 0 2 `
+						<device>   <mount_point>   <filesystem>   <options>   <dump>   <pass>
+
+	Po edycji /etc/fstab → zawsze:
+sudo mount -a
+
+### Warstwy / model zależności ### 
+Disk
+ └─ Partition (optional)
+     └─ PV
+         └─ VG
+             └─ LV
+                 └─ Filesystem
+                     └─ Mount
+
+### Różnica: VG free vs FS free ###
+
+VG free  → sprawdzamy vgs / vgdisplay
+FS free  → sprawdzamy df -h
+LV size  → sprawdzamy lvs / lvdisplay
+
+### Resize ###
+lvextend + resize2fs   (manualnie)
+lvextend --resizefs    (w jednym kroku)
+###
+
+
+
+
+
