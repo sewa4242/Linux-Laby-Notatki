@@ -1,0 +1,7 @@
+ETAP 1
+# 5 LINIA #
+	zamiast if [ "$?" = 1 ] 
+można by było zrobić:
+	if ! ip route | grep -q default
+grep -q = wyciszenie outpout z grep 
+W takim użyciu bash sam sobie sprawdzi kod wyjścia aby ewentualnie móc uruchomić warunek else.
