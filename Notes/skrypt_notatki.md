@@ -3,13 +3,13 @@
 
 `else` -- alternatywna ścieżka
 
-`elif` --
+`elif` -- pozwala sprawdzić kolejne warunki, jeśli ten pierwszy (pierwszy if) okazał się nieprawdziwy.
 
 `fi` -- koniec instrukcji
 
-`case`
+`case` -- służy do sprawdzania, do którego wzorca pasuje dana wartość.
 
-`for`
+`for` -- służy do wykonania tych samych poleceń dla kolejnych bloków.
 
 `while`
 
