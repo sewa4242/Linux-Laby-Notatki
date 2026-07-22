@@ -19,7 +19,7 @@ Skrypt zbiera informacje o:
 ## INFO
 
 Do czasu działania systemu zostało użyte `uptime -p` 
-Przy prostym użyciu awk print wynik 1hour jest bez sklejony warto przy podobnych sytuacjach rozważyć awk z użyciem separtaora.
+Przy prostym użyciu awk print wynik 1hour jest sklejony warto przy podobnych sytuacjach rozważyć awk z użyciem separtaora.
 
 ## CZAS PRACY/OBCIĄŻENIE
 
